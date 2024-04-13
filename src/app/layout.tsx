@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { Theme } from "@/components/Theme";
+import Provider from "@/components/Provider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,10 +20,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={inter.className}>
-        <Theme attribute="class">
+        <Provider>
           <Navbar />
           {children}
-        </Theme>
+        </Provider>
       </body>
     </html>
   );
