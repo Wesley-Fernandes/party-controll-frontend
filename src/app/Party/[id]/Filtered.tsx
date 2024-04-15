@@ -1,22 +1,15 @@
 import Guest from "@/components/Guest";
+import { guestStore } from "@/store/add-guest";
 import React from "react";
-interface ItemType {
-  id: string;
-  name: string;
-  arrive: Date | null;
-  exit: Date | null;
-  updater: string;
-}
 
-interface props {
-  data: ItemType[];
-}
-export default function Filtered({ data }: props) {
-  return (
-    <>
-      {data.map((i) => (
-        <Guest key={i.id} {...i} />
-      ))}
-    </>
-  );
+export default function Filtered() {
+
+	const {guestFiltered} = guestStore()
+	return (
+		<>
+			{guestFiltered.map((i) => (
+				<Guest key={i.id} {...i} />
+			))}
+		</>
+	);
 }
